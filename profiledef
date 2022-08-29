@@ -1,0 +1,14 @@
+#! /usr/bin/env python
+import time
+
+img_version=time.strftime("%Y-%m-%d")
+img_name="RebornOS-ARM-rpi-" + img_version
+img_label="RebornOS ARM"
+install_dir="arch"
+basename="REBORN"
+arch="aarch64"
+pacman_conf="pacman.conf.aarch64"
+device="rpi"
+fs="btrfs"
+img_type="image"
+img_backend="loop"
