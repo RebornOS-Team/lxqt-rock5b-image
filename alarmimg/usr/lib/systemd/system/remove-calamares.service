@@ -1,0 +1,9 @@
+[Unit]
+Description=Remove Calamares
+
+[Service]
+Type=oneshot
+ExecStart=/bin/pacman -Rncsu --noconfirm calamares-core calamares-configuration
+
+[Install]
+WantedBy=multi-user.target

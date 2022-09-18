@@ -2,11 +2,9 @@
 
 declare -A file_permissions=()
 file_permissions=(
-  ["/etc/"]="0:0:644"
-  ["/etc/shadow"]="0:0:400"
-  ["/etc/gshadow"]="0:0:0400" 
+  ["/etc/"]="0:0:755"
   ["/usr/"]="0:0:755"
-  ["/home/"]="0:0:750"
+  ["/home/"]="0:0:755"
   ["/home/rebornos/"]="1001:1001:710"
 )
 
@@ -25,9 +23,8 @@ if [[ -d "$template_dir" ]]; then
         else
             if [[ "${filename: -1}" == "/" ]]; then
                 chown -hR -- "${permissions[0]}:${permissions[1]}" "${template_dir}${filename}"
-                echo "chown -hR -- "${permissions[0]}:${permissions[1]}" "${template_dir}${filename}""
-                chmod -R -- "${permissions[2]}" "${template_dir}${filename}"
-                echo "chmod -R -- "${permissions[2]}" "${template_dir}${filename}""
+                chmod -- "${permissions[2]}" "${template_dir}${filename}"
+                # find "${template_dir}${filename}" -type d -exec chmod "${permissions[2]}" {} \;
             else
                 chown -h -- "${permissions[0]}:${permissions[1]}" "${template_dir}${filename}"
                 chmod -- "${permissions[2]}" "${template_dir}${filename}"
