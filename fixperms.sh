@@ -3,12 +3,12 @@
 declare -A file_permissions=()
 file_permissions=(
   ["/etc/"]="0:0:755"
-  ["/usr/"]="0:0:755"
-  ["/home/"]="0:0:755"
-  ["/home/rebornos/"]="1001:1001:710"
+  ["/usr/bin/resizefs"]="0:0:755"
+  ["/usr/bin/zswap-arm-ctrl"]="0:0:755"
+  ["/home/rebornos/"]="1001:1001:750"
 )
-
-template_dir="$(dirname "$(readlink -f "$0")")/alarmimg"
+#template dir is passed as an arg converted from a relative path to an absolute path
+template_dir=$(readlink -f "$1")
 
 if [[ -d "$template_dir" ]]; then
     # Set ownership and mode for files and directories
@@ -22,11 +22,12 @@ if [[ -d "$template_dir" ]]; then
             echo "Cannot change permissions of '${template_dir}${filename}'. The file or directory does not exist."
         else
             if [[ "${filename: -1}" == "/" ]]; then
-                chown -hR -- "${permissions[0]}:${permissions[1]}" "${template_dir}${filename}"
+                chown -Rh -- "${permissions[0]}:${permissions[1]}" "${template_dir}${filename}"
+                echo "Set ownership of '${template_dir}${filename}' to '${permissions[0]}:${permissions[1]}'."
                 chmod -- "${permissions[2]}" "${template_dir}${filename}"
                 # find "${template_dir}${filename}" -type d -exec chmod "${permissions[2]}" {} \;
             else
-                chown -h -- "${permissions[0]}:${permissions[1]}" "${template_dir}${filename}"
+                chown -hv -- "${permissions[0]}:${permissions[1]}" "${template_dir}${filename}"
                 chmod -- "${permissions[2]}" "${template_dir}${filename}"
             fi
         fi

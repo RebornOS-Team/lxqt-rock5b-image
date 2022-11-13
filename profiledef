@@ -2,13 +2,24 @@
 import time
 
 img_version=time.strftime("%Y-%m-%d")
+edition="home" # home, security 
+device="rpi" # rpi more will be added soon
+arch="aarch64" # aarch64, armv7h
 img_name="RebornOS-ARM-rpi-" + img_version
-img_label="RebornOS ARM"
 install_dir="arch"
-basename="REBORN"
-arch="aarch64"
-pacman_conf="pacman.conf.aarch64"
-device="rpi"
-fs="btrfs"
-img_type="image"
-img_backend="loop"
+fs="btrfs" # ext4 or btrfs
+img_type="image" # image (img.xz) or rootfs (tar.gz)
+img_backend="loop" # loop or qemu-nbd
+# root=PARTUUID=XXXXXX-02 will always be added to the kernel command line
+# if you use btrfs you need add rootflags=subvol=@
+cmdline="rw rootflags=subvol=@ rootwait console=serial0,115200 console=tty1 selinux=0 plymouth.enable=1 splash smsc95xx.turbo_mode=N dwc_otg.lpm_enable=0 kgdboc=serial0,115200"
+# Enable bluetooth by default
+# Fix screen issues
+configtxt='''
+[pi4*]
+dtoverlay=vc4-fkms-v3d
+[all]
+disable_overscan=1
+dtparam=krnbt=on
+gpu_mem=128
+'''

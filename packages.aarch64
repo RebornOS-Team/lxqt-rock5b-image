@@ -27,7 +27,7 @@ pipewire-pulse
 #pipewire-media-session
 pipewire-alsa
 pipewire-jack
-rebornos-extras
+#rebornos-extras
 rebornos-keyring
 rebornos-mirrorlist
 rebornos-iso-welcome
@@ -38,5 +38,5 @@ firefox
 pamac-aur
 calamares-core
 calamares-configuration
-rebornos-plymouth-theme
+#rebornos-plymouth-theme
 rebornos-cosmic-lxqt

@@ -1,0 +1,10 @@
+[Unit]
+Description=Resize root filesystem
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/resizefs
+
+[Install]
+WantedBy=multi-user.target
