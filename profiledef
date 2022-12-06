@@ -16,8 +16,6 @@ cmdline="rw rootflags=subvol=@ rootwait console=serial0,115200 console=tty1 seli
 # Enable bluetooth by default
 # Fix screen issues
 configtxt='''
-[pi4*]
-dtoverlay=vc4-fkms-v3d
 [all]
 disable_overscan=1
 dtparam=krnbt=on

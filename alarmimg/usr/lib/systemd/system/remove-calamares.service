@@ -3,7 +3,8 @@ Description=Remove Calamares
 
 [Service]
 Type=oneshot
-ExecStart=/bin/pacman -Rncsu --noconfirm calamares-core calamares-configuration
+ExecStartPre=/bin/pacman -Rncsu --noconfirm calamares-core calamares-configuration-rpi
+ExecStartPre=/usr/bin/rm -r /usr/lib/systemd/system/remove-calamares.service
 
 [Install]
 WantedBy=multi-user.target

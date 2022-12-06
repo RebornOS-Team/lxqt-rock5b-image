@@ -4,7 +4,8 @@ Description=Resize root filesystem
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/bin/resizefs
+ExecStartPre=/usr/bin/resizefs
+ExecStartPre=systemctl disable resizefs.service
 
 [Install]
 WantedBy=multi-user.target
