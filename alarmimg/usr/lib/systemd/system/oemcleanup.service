@@ -5,8 +5,8 @@ Description=Remove OEM user
 Type=oneshot
 RemainAfterExit=no
 ExecStartPre=/usr/bin/userdel -r -f rebornos
-ExecStartPre=/usr/bin/rm -rf /home/rebornos
-ExecStartPre=/usr/bin/rm /etc/systemd/system/oemremove.service
+ExecStart=/usr/bin/rm -rf /home/rebornos
+ExecStartPost=/usr/bin/rm /etc/systemd/system/oemremove.service
 
 [Install]
 WantedBy=multi-user.target

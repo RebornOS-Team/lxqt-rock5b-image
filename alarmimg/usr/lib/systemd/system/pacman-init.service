@@ -6,7 +6,7 @@ Before=sshd.service cloud-final.service
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/bin/pacman-key --init
+ExecStartPre=/usr/bin/pacman-key --init
 ExecStart=/usr/bin/pacman-key --populate archlinuxarm rebornos
 
 [Install]
