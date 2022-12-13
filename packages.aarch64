@@ -11,10 +11,12 @@ fish
 sudo
 polkit
 bluez-utils
-f2fs-tools
-linux-rpi
-firmware-raspberrypi
-raspberrypi-bootloader
+#f2fs-tools
+linux-rockchip-rk3588-bin
+linux-rockchip-rk3588-bin-headers
+uboot-tools
+#firmware-raspberrypi
+#raspberrypi-bootloader
 linux-firmware
 linux-firmware-whence
 lsb-release
