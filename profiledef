@@ -2,7 +2,7 @@
 import time
 
 img_version=time.strftime("%Y-%m-%d")
-edition="home" # home, security 
+edition="lxqt" # home, security 
 device="rock5b" # rpi more will be added soon
 arch="aarch64" # aarch64, armv7h
 img_name="RebornOS-ARM-rock5b-" + img_version
@@ -10,15 +10,13 @@ install_dir="arch"
 fs="ext4" # ext4 or btrfs
 img_type="image" # image (img.xz) or rootfs (tar.gz)
 img_backend="loop" # loop or qemu-nbd
-# root=PARTUUID=XXXXXX-02 will always be added to the kernel command line
+# append root=PARTUUID=XXXXXX-02 + CMDLINE will always be added to the kernel command line
 # if you use btrfs you need add rootflags=subvol=@
-#cmdline="rw rootflags=subvol=@ rootwait console=serial0,115200 console=tty1 selinux=0 plymouth.enable=1 splash smsc95xx.turbo_mode=N dwc_otg.lpm_enable=0 kgdboc=serial0,115200"
-cmdline=""
+cmdline="earlycon=uart8250,mmio32,0xfeb50000 console=ttyFIQ0 console=tty1 consoleblank=0 loglevel=0 panic=10 rootwait rw init=/sbin/init rootfstype=ext4 cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory swapaccount=1 irqchip.gicv3_pseudo_nmi=0 switolb=1 coherent_pool=2M"
 configtxt='''
-label vmlinuz-linux-rockchip-rk3588
+label RebornOS ARM
     kernel /vmlinuz-linux-rockchip-rk3588
     initrd /initramfs-linux-rockchip-rk3588.img
-    devicetreedir /dtbs/rockchip
+    devicetreedir /dtbs/
     fdtoverlays  /dtbs/rockchip/overlay/rk3588-uart7-m2.dtbo 
-    append   root=LABEL=ROOTFS earlycon=uart8250,mmio32,0xfeb50000 console=ttyFIQ0 console=tty1 consoleblank=0 loglevel=0 panic=10 rootwait rw init=/sbin/init rootfstype=ext4 cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory swapaccount=1 irqchip.gicv3_pseudo_nmi=0 switolb=1 coherent_pool=2M
 '''

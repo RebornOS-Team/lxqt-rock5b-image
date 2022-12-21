@@ -1,6 +1,7 @@
-# lxqt-rpi-image
-Files for creating an lxqt raspberry pi image
+# lxqt-rock5b-image
+Files for creating an lxqt rock 5b image
 Usage
 ```
-mkimage.py -w ./work/ -o ./out/ -c ./lxqt-rpi-image/
+mkimage.py -w ./work/ -o ./out/ -c ./lxqt-rock5b-image/
+
 ```
