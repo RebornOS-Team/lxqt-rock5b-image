@@ -15,6 +15,7 @@ bluez-utils
 linux-rockchip-rk3588-bin
 linux-rockchip-rk3588-bin-headers
 libmali-valhall-g610-x11
+libdrm
 libdrm-rockchip
 uboot-tools
 #firmware-raspberrypi
