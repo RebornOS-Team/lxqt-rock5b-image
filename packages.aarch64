@@ -14,7 +14,7 @@ bluez-utils
 #f2fs-tools
 linux-rockchip-rk3588-bin
 linux-rockchip-rk3588-bin-headers
-libmali-valhall-g610-x11
+mesa-panfork-git
 libdrm
 libdrm-rockchip
 uboot-tools
@@ -45,3 +45,4 @@ calamares-core
 calamares-configuration-rock5b
 #rebornos-plymouth-theme
 rebornos-cosmic-lxqt
+# update-extlinux
