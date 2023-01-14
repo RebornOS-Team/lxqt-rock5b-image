@@ -35,7 +35,7 @@ pipewire-jack
 #rebornos-extras
 rebornos-keyring
 rebornos-mirrorlist
-rebornos-iso-welcome-rock5b
+rebornos-iso-welcome
 rebornos-welcome
 dosfstools
 e2fsprogs
@@ -45,4 +45,5 @@ calamares-core
 calamares-configuration-rock5b
 #rebornos-plymouth-theme
 rebornos-cosmic-lxqt
+mali-G610-firmware
 # update-extlinux
