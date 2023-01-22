@@ -11,6 +11,7 @@ fish
 sudo
 polkit
 bluez-utils
+rock5b-post-install
 #f2fs-tools
 linux-rockchip-rk3588-bin
 linux-rockchip-rk3588-bin-headers
@@ -47,3 +48,4 @@ calamares-configuration-rock5b
 rebornos-cosmic-lxqt
 mali-G610-firmware
 # update-extlinux
+blueman
